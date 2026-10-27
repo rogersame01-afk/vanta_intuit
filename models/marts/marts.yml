@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: dim_account
+    description: "One current row per account."
+    columns:
+      - name: account_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_campaign
+    description: "One row per campaign."
+    columns:
+      - name: campaign_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "One row per date, January through March 2026."
+    columns:
+      - name: date
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fct_spend
+    description: "One accepted latest spend record, converted to USD."
+    columns:
+      - name: spend_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+
+      - name: date
+        data_tests:
+          - not_null
+
+      - name: spend_usd
+        data_tests:
+          - not_null
+
+  - name: fct_lead
+    description: >
+      One eligible lead with qualified opportunity outcomes
+      and first-account-anchored usage revenue.
+    columns:
+      - name: lead_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: account_id
+        data_tests:
+          - not_null
+
+      - name: campaign_id
+        data_tests:
+          - not_null
+
+      - name: date
+        data_tests:
+          - not_null

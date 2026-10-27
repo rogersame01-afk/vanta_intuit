@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: stg_leads
+    description: >
+      Standardized Salesforce lead source.
+      Preserves multiple versions of a lead.
+
+    columns:
+      - name: lead_id
+        description: "CRM lead business identifier"
+        data_tests:
+          - not_null
+
+      - name: created_date
+        data_tests:
+          - not_null
+
+      - name: score
+        data_tests:
+          - not_null
+
+      - name: is_test
+        data_tests:
+          - not_null
+
+      - name: record_version
+        data_tests:
+          - not_null

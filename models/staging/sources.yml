@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: salesforce
+    description: "CRM source tables for the SMB marketing project"
+    database: CLOUD_SMB_BI
+    schema: RAW
+
+    tables:
+      - name: LEADS
+        identifier: LEADS
+        description: "Raw lead records, including source revisions."
+
+      - name: ACCOUNTS
+        identifier: STAGED_ACCOUNTS_RAW
+        description: "Account attributes, including country and employee count."
+
+      - name: CAMPAIGNS
+        identifier: STAGED_CAMPAIGNS_RAW
+        description: "Campaign attributes, including channel and promoted product."
+
+      - name: OPPORTUNITIES
+        identifier: STAGED_OPPORTUNITIES_RAW
+        description: "Sales opportunities linked to leads."
+
+  - name: advertising
+    description: "Advertising performance source tables"
+    database: CLOUD_SMB_BI
+    schema: RAW
+
+    tables:
+      - name: SPEND
+        identifier: STAGED_SPEND_COMPARE_RAW
+        description: "Advertising spend, impressions, clicks, and source revisions."
+
+  - name: finance
+    description: "Currency conversion reference data"
+    database: CLOUD_SMB_BI
+    schema: RAW
+
+    tables:
+      - name: FX
+        identifier: STAGED_FX_RAW
+        description: "Daily exchange rates expressed as USD per local currency unit."
+
+  - name: billing
+    description: "Cloud billing source tables"
+    database: CLOUD_SMB_BI
+    schema: RAW
+
+    tables:
+      - name: BILLING
+        identifier: STAGED_BILLING_RAW
+        description: "Account-level usage charges, credits, and source revisions." 
